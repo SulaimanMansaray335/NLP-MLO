@@ -6,3 +6,4 @@ scipy
 nltk
 gensim
 tqdm
+bs4

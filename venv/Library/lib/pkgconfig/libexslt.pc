@@ -1,0 +1,12 @@
+prefix=c:/Users/tariq/Desktop/NLP MLO/venv/Library
+exec_prefix=c:/Users/tariq/Desktop/NLP MLO/venv/Library
+libdir=c:/Users/tariq/Desktop/NLP MLO/venv/Library/lib
+includedir=c:/Users/tariq/Desktop/NLP MLO/venv/Library/include
+
+
+Name: libexslt
+Version: 0.8.24
+Description: EXSLT Extension library
+Requires: libxml-2.0, libxslt
+Cflags: -I${includedir}
+Libs: -L${libdir} -lexslt
