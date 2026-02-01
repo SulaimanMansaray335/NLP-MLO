@@ -7,3 +7,6 @@ nltk
 gensim
 tqdm
 bs4
+tensorflow
+scikeras
+streamlit
