@@ -7,7 +7,7 @@ nltk
 gensim
 tqdm
 bs4
-tensorflow
+tensorflow==2.13.0
 scikeras
 streamlit
 protobuf==3.20.3
