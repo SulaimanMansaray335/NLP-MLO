@@ -15,7 +15,7 @@ reverse_word_index = {value: key for key, value in word_index.items()}
 
 @st.cache_resource
 def get_model():
-    model_path = Path(__file__).parent / "notebook" / "simple_rnn_imdb.h5"
+    model_path = Path(__file__).parent / "notebook" / "simple_rnn_imdb.keras"
     if not model_path.exists():
         st.error(f"Model file not found: {model_path}")
         st.stop()
