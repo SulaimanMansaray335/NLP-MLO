@@ -1,5 +1,6 @@
 import numpy as np
 import streamlit as st
+from pathlib import Path
 import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence 
@@ -10,8 +11,17 @@ word_index = imdb.get_word_index()
 
 reverse_word_index = {value: key for key, value in word_index.items()}
 
+@st.cache_resource
+def get_model():
+    model_path = Path(__file__).parent / "notebook" / "simple_rnn_imdb.keras"
+    if not model_path.exists():
+        st.error(f"Model file not found: {model_path}")
+        st.stop()
+    return load_model(model_path, compile=False)
 
-model = load_model('notebook/simple_rnn_imdb.h5')  
+model = get_model()
+
+ 
 
 def decode_review(encoded_review):
     return ' '.join([reverse_word_index.get(i - 3, '?') for i in encoded_review])
