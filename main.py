@@ -11,6 +11,21 @@ word_index = imdb.get_word_index()
 
 reverse_word_index = {value: key for key, value in word_index.items()}
 
+base = Path(__file__).parent
+model_path = base / "notebook" / "simple_rnn_imdb.keras"
+
+st.write("Working dir:", os.getcwd())
+st.write("__file__ parent:", str(base))
+st.write("Base dir contents:", [p.name for p in base.iterdir()])
+st.write("Notebook dir exists:", (base / "notebook").exists())
+
+if (base / "notebook").exists():
+    st.write("Notebook contents:", [p.name for p in (base / "notebook").iterdir()])
+
+st.write("Model path:", str(model_path))
+st.write("Model exists:", model_path.exists())
+st.write("Model size (bytes):", model_path.stat().st_size if model_path.exists() else None)
+
 @st.cache_resource
 def get_model():
     model_path = Path(__file__).parent / "notebook" / "simple_rnn_imdb.keras"
